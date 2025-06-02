@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Quentin JAY</title>
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header-container">
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="col-md-8 text-center">
+                  <img src="assets/images/pp2.jpg" alt="Quentin JAY" class="profile-img mb-3" data-aos="fade-down">
+                  <h1 class="display-4 fw-bold" data-aos="fade-up">Quentin JAY</h1>
+                  <p class="lead" data-aos="fade-up" data-aos-delay="100">Étudiant en 2ème année de Bachelor Universitaire Technologique Réseaux et Télécommunications</p>
+              </div>
+          </div>
+      </div>
+  </header>
+
+  <!-- Navigation Tabs -->
+  <div class="container mt-5">
+      <ul class="nav nav-tabs" id="portfolioTabs" role="tablist">
+          <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="accueil-tab" data-bs-toggle="tab" data-bs-target="#accueil" type="button" role="tab" aria-controls="accueil" aria-selected="true">
+                  <i class="fas fa-home"></i> Accueil
+              </button>
+          </li>
+          <li class="nav-item" role="presentation">
+              <button class="nav-link" id="about-tab" data-bs-toggle="tab" data-bs-target="#about" type="button" role="tab" aria-controls="about" aria-selected="false">
+                  <i class="fas fa-user"></i> À propos
+              </button>
+          </li>
+          <li class="nav-item" role="presentation">
+              <button class="nav-link" id="education-tab" data-bs-toggle="tab" data-bs-target="#education" type="button" role="tab" aria-controls="education" aria-selected="false">
+                  <i class="fas fa-graduation-cap"></i> Formation
+              </button>
+          </li>
+          <li class="nav-item" role="presentation">
+              <button class="nav-link" id="experience-tab" data-bs-toggle="tab" data-bs-target="#experience" type="button" role="tab" aria-controls="experience" aria-selected="false">
+                  <i class="fas fa-briefcase"></i> Expérience
+              </button>
+          </li>
+          <li class="nav-item" role="presentation">
+              <button class="nav-link" id="skills-tab" data-bs-toggle="tab" data-bs-target="#skills" type="button" role="tab" aria-controls="skills" aria-selected="false">
+                  <i class="fas fa-code"></i> Compétences
+              </button>
+          </li>
+          <li class="nav-item" role="presentation">
+              <button class="nav-link" id="projects-tab" data-bs-toggle="tab" data-bs-target="#projects" type="button" role="tab" aria-controls="projects" aria-selected="false">
+                  <i class="fas fa-project-diagram"></i> Projets
+              </button>
+          </li>
+          <!-- Nouveaux onglets dans le nouvel ordre -->
+          <li class="nav-item" role="presentation">
+              <button class="nav-link" id="divers-tab" data-bs-toggle="tab" data-bs-target="#divers" type="button" role="tab" aria-controls="divers" aria-selected="false">
+                  <i class="fas fa-star"></i> Divers
+              </button>
+          </li>
+          <li class="nav-item" role="presentation">
+              <button class="nav-link" id="resume-tab" data-bs-toggle="tab" data-bs-target="#resume" type="button" role="tab" aria-controls="resume" aria-selected="false">
+                  <i class="fas fa-file-alt"></i> CV
+              </button>
+          </li>
+          <li class="nav-item" role="presentation">
+              <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">
+                  <i class="fas fa-envelope"></i> Contact
+              </button>
+          </li>
+      </ul>
+
+      <!-- Tab Content -->
+      <div class="tab-content" id="portfolioTabsContent">
+          <!-- Accueil -->
+          <div class="tab-pane fade show active" id="accueil" role="tabpanel" aria-labelledby="accueil-tab">
+              <div class="section-container" data-aos="fade-up">
+                  <h2 class="section-title">Bienvenue sur mon portfolio</h2>
+                  <div class="row">
+                      <div class="col-md-6">
+                          <p>Je suis Quentin JAY, étudiant en 2ème année de Bachelor Universitaire Technologique Réseaux et Télécommunications. Ce portfolio présente mon parcours académique, mes compétences et mes projets.</p>
+                          <p>Naviguez à travers les différents onglets pour découvrir mon profil complet :</p>
+                          <ul>
+                              <li><strong>À propos</strong> - Pour mieux me connaître</li>
+                              <li><strong>Formation</strong> - Mon parcours académique</li>
+                              <li><strong>Expérience</strong> - Mes expériences professionnelles</li>
+                              <li><strong>Compétences</strong> - Mes compétences techniques et qualités</li>
+                              <li><strong>Projets</strong> - Les projets que j'ai réalisés</li>
+                              <li><strong>Divers</strong> - Mes centres d'intérêt et autres infos</li>
+                              <li><strong>CV</strong> - Mon curriculum vitae</li>
+                              <li><strong>Contact</strong> - Pour me contacter</li>
+                          </ul>
+                          <div class="mt-4">
+                              <a href="#about" class="btn btn-primary" onclick="document.getElementById('about-tab').click()">
+                                  <i class="fas fa-arrow-right"></i> Commencer la visite
+                              </a>
+                          </div>
+                      </div>
+                      <div class="col-md-6 text-center">
+                          <!-- Illustration optionnelle -->
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- À propos -->
+          <div class="tab-pane fade" id="about" role="tabpanel" aria-labelledby="about-tab">
+              <div class="section-container" data-aos="fade-up">
+                  <h2 class="section-title">À propos de moi</h2>
+                  <div class="row">
+                      <div class="col-md-6">
+                          <p>Actuellement étudiant en deuxième année de Bachelor Universitaire Technologique en Réseaux et Télécommunications.</p>
+                          <p>Mon parcours académique a débuté avec l'obtention d'un baccalauréat STI2D, où j'ai développé des compétences en sciences et technologies industrielles.</p>
+                          <p>Au-delà de mes activités académiques, je trouve un équilibre dans ma vie en consacrant du temps à mes passions.</p>
+                          <p>Je souhaite poursuivre mes études en intégrant une école d'ingénieur l'année prochaine.</p>
+                          <div class="mt-4">
+                              <a href="#education" class="btn btn-primary" onclick="document.getElementById('education-tab').click()">
+                                  <i class="fas fa-graduation-cap"></i> Voir ma formation
+                              </a>
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="card">
+                              <div class="card-header">
+                                  <i class="fas fa-info-circle"></i> Informations personnelles
+                              </div>
+                              <div class="card-body">
+                                  <ul class="list-group list-group-flush">
+                                      <li class="list-group-item"><strong><i class="fas fa-user"></i> Nom :</strong> Quentin JAY</li>
+                                      <li class="list-group-item"><strong><i class="fas fa-graduation-cap"></i> Formation :</strong> BUT Réseaux et Télécommunications</li>
+                                      <li class="list-group-item"><strong><i class="fas fa-language"></i> Langues :</strong> Français (natif), Anglais (C1)</li>
+                                      <li class="list-group-item"><strong><i class="fas fa-map-marker-alt"></i> Localisation :</strong> Clermont-Ferrand, France</li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Formation -->
+          <div class="tab-pane fade" id="education" role="tabpanel" aria-labelledby="education-tab">
+              <div class="section-container" data-aos="fade-up">
+                  <h2 class="section-title">Formation</h2>
+                  <div class="row mb-4">
+                      <div class="col-md-6">
+                          <div class="card h-100">
+                              <div class="card-header">
+                                  <i class="fas fa-university"></i> 2023-2025 - BUT Réseaux et Télécommunications
+                              </div>
+                              <div class="card-body">
+                                  <div class="row">
+                                      <div class="col-md-4 text-center mb-3">
+                                          <img src="assets/images/iut.jpg" alt="IUT d'Aubière" class="img-fluid rounded" style="max-height: 100px;">
+                                      </div>
+                                      <div class="col-md-8">
+                                          <h5>IUT d'Aubière - 63170</h5>
+                                          <p>Ma formation actuelle en Réseaux et Télécommunications vise à approfondir mes connaissances dans ce domaine en constante évolution. Les cours couvrent une gamme variée de sujets, allant des fondements théoriques aux applications pratiques. Je participe activement aux travaux dirigés, aux projets de groupe et aux activités pratiques pour enrichir mon apprentissage.</p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="card h-100">
+                              <div class="card-header">
+                                  <i class="fas fa-school"></i> 2022 - Baccalauréat STI2D
+                              </div>
+                              <div class="card-body">
+                                  <div class="row">
+                                      <div class="col-md-4 text-center mb-3">
+                                          <img src="assets/images/lafa.jpg" alt="Lycée Lafayette" class="img-fluid rounded" style="max-height: 100px;">
+                                      </div>
+                                      <div class="col-md-8">
+                                          <h5>Lycée Lafayette de Clermont-Ferrand - 63000</h5>
+                                          <p>Mon parcours académique a débuté avec l'obtention d'un baccalauréat STI2D, où j'ai acquis des bases dans le domaine pratique des technologies. Cette expérience a été déterminante dans ma décision de poursuivre mes études en Réseaux et Télécommunications, en mettant en lumière mon intérêt particulier pour l'aspect pratique des sciences et technologies.</p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Expérience -->
+          <div class="tab-pane fade" id="experience" role="tabpanel" aria-labelledby="experience-tab">
+              <div class="section-container" data-aos="fade-up">
+                  <h2 class="section-title">Expérience professionnelle</h2>
+                  <div class="row mb-4">
+                      <div class="col-md-12">
+                          <div class="card mb-4">
+                              <div class="card-header">
+                                  <i class="fas fa-briefcase"></i> Travail d'été au service restauration de l'Hôpital Sainte-Marie (Juillet - Août 2024)
+                              </div>
+                              <div class="card-body">
+                                  <div class="row">
+                                      <div class="col-md-3 text-center mb-3">
+                                          <img src="assets/images/hopital.png" alt="Hôpital Sainte-Marie" class="img-fluid rounded" style="max-height: 150px;">
+                                      </div>
+                                      <div class="col-md-9">
+                                          <h5>Tournant de cuisine</h5>
+                                          <p>Durant ce travail d'été de trois semaines au service restauration de l'Hôpital Sainte-Marie, j'ai acquis une expérience précieuse.</p>
+                                          <h6>Responsabilités et réalisations :</h6>
+                                          <ul>
+                                              <li>J'ai assuré l'hygiène et la propreté des ustensiles et équipements de cuisine.</li>
+                                              <li>J'ai contribué à la préparation des repas en scellant des barquettes pour garantir une distribution efficace.</li>
+                                              <li>J'ai préparé les chariots en fonction des commandes reçues, en veillant à ce que chaque service dispose des repas appropriés.</li>
+                                          </ul>
+                                          <p>Cette expérience m'a permis de développer des compétences organisationnelles et de découvrir l'importance du travail d'équipe dans un contexte professionnel.</p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          
+                          <div class="card">
+                              <div class="card-header">
+                                  <i class="fas fa-briefcase"></i> Stage de 7 jours à l'EHPAD de Lempdes (Juin - Juillet 2021)
+                              </div>
+                              <div class="card-body">
+                                  <div class="row">
+                                      <div class="col-md-3 text-center mb-3">
+                                          <img src="assets/images/ehpad.jpg" alt="EHPAD de Lempdes" class="img-fluid rounded" style="max-height: 150px;">
+                                      </div>
+                                      <div class="col-md-9">
+                                          <h5>Assistant Technicien de Surface</h5>
+                                          <p>Durant ce stage enrichissant d'une semaine à l'EHPAD de Lempdes, j'ai eu l'opportunité de contribuer au bien-être des résidents.</p>
+                                          <h6>Responsabilités et réalisations :</h6>
+                                          <ul>
+                                              <li>J'ai effectué des tâches de nettoyage approfondi, garantissant la propreté et l'hygiène des espaces communs.</li>
+                                              <li>J'ai appris à travailler efficacement dans un environnement professionnel, développant des compétences en gestion du temps.</li>
+                                          </ul>
+                                          <p>Cette expérience m'a permis de découvrir l'importance du travail d'équipe dans un contexte professionnel. Elle a également renforcé ma capacité à gérer des tâches variées de manière organisée et efficiente.</p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Compétences -->
+          <div class="tab-pane fade" id="skills" role="tabpanel" aria-labelledby="skills-tab">
+              <div class="section-container" data-aos="fade-up">
+                  <h2 class="section-title">Compétences</h2>
+                  
+                  <h3 class="mb-4">Compétences techniques</h3>
+                  
+                  <div class="mb-5">
+                      <h4>Télécommunication :</h4>
+                      
+                      <div class="mb-4">
+                          <h5>Mesurer la vitesse de la lumière dans un câble coaxial :</h5>
+                          <p>Au cours des travaux pratique en Télécommunication, j'ai pu mesurer la vitesse de propagation de la lumière dans un câble coaxial. Pour y arriver, j'ai dû connecter un câble coaxial de 1m et un autre de 100m à la sortie d'un générateur basse fréquence qui vont chacun à une entrée d'un oscilloscope. Pour mesurer la vitesse, on compare la différence de temps entre le signal qui passe par le câble 1m et celui qui passe par l'autre câble. Je suis maintenant capable de mesurer la vitesse de propagation de câbles ce qui est important dans le domaine de la Télécommunication.</p>
+                          
+                          <h6>Résultat :</h6>
+                          <div class="progress mb-3">
+                              <div class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">70 %</div>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <div class="mb-5">
+                      <h4>Réseau :</h4>
+                      
+                      <div class="mb-4">
+                          <h5>Création d'un plan d'adressage :</h5>
+                          <p>Durant le BUT Réseaux et Télécommunications, j'ai étudié les réseaux et j'ai pu apprendre à travers les TD en utilisant Cisco Packet Tracer. J'ai créé un plan d'adressage attribuant à chaque machine une adresse IP afin de leur permettre de communiquer, et j'ai également mis en place un serveur DHCP pour l'adressage automatique.</p>
+                          
+                          <h6>Résultat :</h6>
+                          <div class="progress mb-3">
+                              <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">85 %</div>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <div class="mb-5">
+                      <h4>Programmation Web :</h4>
+                      
+                      <div class="mb-4">
+                          <h5>Création d'une page Web HTML/CSS :</h5>
+                          <p>Lors des TD de programmation Web, j'ai appris à créer des pages web en utilisant HTML et CSS pour concevoir des interfaces graphiques et modifier l'apparence du contenu.</p>
+                          
+                          <h6>Résultat :</h6>
+                          <div class="progress mb-3">
+                              <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75 %</div>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <div class="mb-5">
+                      <h4>Téléphonie :</h4>
+                      
+                      <div class="mb-4">
+                          <h5>Configuration d'un call server :</h5>
+                          <p>Lors des travaux pratiques de téléphonie, j'ai appris à configurer un call server et à faire fonctionner des téléphones. J'ai suivi pas à pas les instructions du TP, effectué un compte rendu et je suis désormais capable d'apporter des modifications pour rendre les équipements fonctionnels. J'ai obtenu la note de 19,5 lors de l'évaluation.</p>
+                          
+                          <h6>Résultat :</h6>
+                          <div class="progress mb-3">
+                              <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90 %</div>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <div class="mb-5">
+                      <h4>Cybersécurité :</h4>
+                      
+                      <div class="mb-4">
+                          <h5>Configuration d'un call server :</h5>
+                          <p>De façon similaire à la téléphonie, j'ai appris à configurer un call server et à manipuler ses paramètres afin de garantir la sécurité des échanges. J'ai obtenu la note de 19,5 lors de cette évaluation.</p>
+                          
+                          <h6>Résultat :</h6>
+                          <div class="progress mb-3">
+                              <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90 %</div>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <h3 class="mb-4 mt-5">Qualités</h3>
+                  
+                  <div class="row">
+                      <div class="col-md-4 mb-3">
+                          <div class="card h-100">
+                              <div class="card-body">
+                                  <h4 class="text-center mb-3">Persévérant</h4>
+                                  <p>Durant le projet de SAE23, alors que je rencontrais un problème bloquant la création d'un utilisateur, j'ai persévéré pendant une séance entière jusqu'à corriger l'erreur.</p>
+                              </div>
+                          </div>
+                      </div>
+                      
+                      <div class="col-md-4 mb-3">
+                          <div class="card h-100">
+                              <div class="card-body">
+                                  <h4 class="text-center mb-3">Autonome</h4>
+                                  <p>Lors d'un TP en télécommunication, j'ai dû travailler seul pendant trois heures, ce qui m'a permis de gagner en autonomie.</p>
+                              </div>
+                          </div>
+                      </div>
+                      
+                      <div class="col-md-4 mb-3">
+                          <div class="card h-100">
+                              <div class="card-body">
+                                  <h4 class="text-center mb-3">Travail d'équipe</h4>
+                                  <p>Au cours d'un TP sur Internet, mon coéquipier et moi avons réparti intelligemment les tâches afin d'optimiser notre efficacité.</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <h3 class="mb-4 mt-5">Compétences linguistiques</h3>
+                  
+                  <div class="row">
+                      <div class="col-md-6">
+                          <div class="card mb-3">
+                              <div class="card-body">
+                                  <h4><i class="fas fa-language me-2"></i>Anglais</h4>
+                                  <p>Niveau C1</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Projets -->
+          <div class="tab-pane fade" id="projects" role="tabpanel" aria-labelledby="projects-tab">
+              <div class="section-container" data-aos="fade-up">
+                  <h2 class="section-title">Projets</h2>
+                  
+                  <!-- Projet 1 -->
+                  <div class="card mb-4">
+                      <div class="card-header">
+                          <h3>Projet 1 : SAE24 - Projet intégratif</h3>
+                      </div>
+                      <div class="card-body">
+                          <p><strong>Description</strong> : Durant la SAE24, j'ai été chargé de créer un réseau d'entreprise avec tout le matériel nécessaire.</p>
+                          <h4>Étapes réalisées :</h4>
+                          <ul>
+                              <li>Conception du réseau</li>
+                              <li>Configuration des équipements</li>
+                              <li>Tests de connectivité</li>
+                              <li>Documentation du projet</li>
+                          </ul>
+                          <div class="row mt-3">
+                              <div class="col-md-6">
+                                  <img src="assets/images/cisco.png" alt="Illustration du projet" class="img-fluid rounded">
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <!-- Projet 2 -->
+                  <div class="card mb-4">
+                    <div class="card-header">
+                      <h3>Projet 2 : SAE14 - Portfolio et CV</h3>
+                    </div>
+                    <div class="card-body">
+                      <p><strong>Description :</strong> Durant la SAE14, j'ai entrepris la création de mon CV et de mon portfolio pour présenter de manière professionnelle mes compétences et expériences.</p>
+                      <h4>Étapes réalisées :</h4>
+                      <ul class="list-group list-group-flush mb-3">
+                        <li class="list-group-item">
+                          <strong>Conception de CV avec Canva :</strong>
+                          <p>J'ai utilisé Canva pour élaborer un CV visuellement attrayant, mettant en avant mes compétences, ma formation et mes réalisations. La plateforme m'a permis de jouer avec la mise en page et les éléments graphiques pour créer une présentation unique.</p>
+                        </li>
+                        <li class="list-group-item">
+                          <strong>Développement web avec HTML/CSS :</strong>
+                          <p>Pour mon portfolio, j'ai d'abord créé la structure du portfolio qui se compose de 8 parties. J'ai ensuite écrit le contenu du portfolio en m'appuyant sur les consignes. Durant la création du portfolio, j'ai eu des difficultés pour créer les jauges pour les compétences, que j'ai résolues en cherchant sur internet. J'ai intégré le CV réalisé durant ce projet dans le portfolio.</p>
+                        </li>
+                      </ul>
+                      <h4>Résultats :</h4>
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                          <strong>CV professionnel :</strong>
+                          <p>Grâce à ce projet, j'ai créé un CV structuré, clair et concis, mettant en évidence mes compétences et expériences de manière professionnelle.</p>
+                        </li>
+                        <li class="list-group-item">
+                          <strong>Portfolio interactif :</strong>
+                          <p>Avec ce projet, j'ai créé un portfolio codé en HTML/CSS, ce qui m'a permis de m'améliorer sur le codage HTML et CSS.</p>
+                        </li>
+                      </ul>
+                      <div class="mt-3 text-center">
+                        <img src="assets/images/port.png" alt="Illustration du portfolio" class="img-fluid rounded">
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Projet 3 : SAE15 -->
+                  <div class="card mb-4">
+                      <div class="card-header">
+                          <h3>Projet 3 : SAE15 - Analyse de planning</h3>
+                      </div>
+                      <div class="card-body">
+                          <div class="row">
+                              <div class="col-md-8">
+                                  <h4>Étapes réalisées</h4>
+                                  <ul class="list-group">
+                                      <li class="list-group-item">
+                                          <strong>Changements des fuseaux horaires</strong>
+                                          <p>J'ai changé automatiquement les fuseaux horaires qui étaient en GMT+0 pour les mettre en format français.</p>
+                                      </li>
+                                      <li class="list-group-item">
+                                          <strong>Code pour exploiter le tableau excel</strong>
+                                          <p>J'ai écrit un code qui exploite les données du tableau excel pour donner les dates de reprises de chaque groupe.</p>
+                                      </li>
+                                  </ul>
+                                  <div class="mt-3">
+                                      <h4>Résultats</h4>
+                                      <p>J'ai créé le code permettant à un élève de connaître les dates de reprise des cours après les vacances pour chaque groupe de TD et TP et ai obtenu la note de 20.</p>
+                                  </div>
+                              </div>
+                              <div class="col-md-4">
+                                  <img src="assets/images/emploi.png" alt="Calendrier" class="img-fluid rounded mb-3">
+                                  <img src="assets/images/menu.png" alt="Code menu" class="img-fluid rounded mb-3">
+                                  <img src="assets/images/fin.png" alt="Résultat code" class="img-fluid rounded">
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <!-- Projet 4 : SAE22 - Matlab -->
+                  <div class="card mb-4">
+                      <div class="card-body">
+                          <h3 class="card-title">Projet 4 : SAE22 - Matlab</h3>
+                          <div class="row">
+                              <div class="col-md-8">
+                                  <h4>Description</h4>
+                                  <p>Au cours de la SAE22, j'ai dû apprendre le codage Matlab.</p>
+                                  
+                                  <h4>Objectif du projet</h4>
+                                  <p>Faire des programmes répondant aux exigences du projet.</p>
+                                  
+                                  <h4>Étapes réalisées</h4>
+                                  <ul class="list-group list-group-flush mb-3">
+                                      <li class="list-group-item">
+                                          <strong>Formation Matlab Onramp</strong>
+                                          <p>J'ai réalisé l'autoformation Matlab Onramp.</p>
+                                      </li>
+                                      <li class="list-group-item">
+                                          <strong>Manipulation de signaux sur Matlab</strong>
+                                          <p>J'ai créé, affiché et modifié des signaux sinusoïdaux avec Matlab pour pouvoir les exploiter.</p>
+                                      </li>
+                                      <li class="list-group-item">
+                                          <strong>Intégration d'une fonction</strong>
+                                          <p>J'ai calculé l'intégrale d'une fonction avec différentes méthodes : la méthode des rectangles, des trapèzes et de Simpson.</p>
+                                      </li>
+                                      <li class="list-group-item">
+                                          <strong>Étude d'un signal temporel</strong>
+                                          <p>J'ai étudié des fonctions générées à l'oscilloscope avec Matlab.</p>
+                                      </li>
+                                  </ul>
+                                  
+                                  <h4>Résultats</h4>
+                                  <p>Travail toujours en cours.</p>
+                              </div>
+                              <div class="col-md-4">
+                                  <div class="row mb-3">
+                                      <div class="col-12">
+                                          <img src="assets/images/Matlab1.png" alt="Matlab Onramp" class="img-fluid rounded mb-3">
+                                      </div>
+                                      <div class="col-12">
+                                          <img src="assets/images/Matlab2.png" alt="Signaux sinusoïdaux" class="img-fluid rounded mb-3">
+                                      </div>
+                                  </div>
+                                  <div class="row">
+                                      <div class="col-12">
+                                          <img src="assets/images/Matlab3.png" alt="Intégration de fonction" class="img-fluid rounded mb-3">
+                                      </div>
+                                      <div class="col-12">
+                                          <img src="assets/images/Matlab4.png" alt="Signal temporel" class="img-fluid rounded">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Divers -->
+          <div class="tab-pane fade" id="divers" role="tabpanel" aria-labelledby="divers-tab">
+              <div class="section-container" data-aos="fade-up">
+                  <h2 class="section-title">Divers</h2>
+                  <div class="row">
+                      <div class="col-md-6 mb-4">
+                          <div class="card h-100">
+                              <div class="card-body">
+                                  <div class="row">
+                                      <div class="col-md-8">
+                                          <h3 class="card-title">Vélo</h3>
+                                          <p>Depuis mon enfance, je fais régulièrement du vélo. Cette activité me permet de me détendre et de passer du temps tout seul. Le vélo fait partie intégrante de mon quotidien.</p>
+                                      </div>
+                                      <div class="col-md-4">
+                                          <img src="assets/images/velo.png" alt="Vélo" class="img-fluid rounded">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      
+                      <div class="col-md-6 mb-4">
+                          <div class="card h-100">
+                              <div class="card-body">
+                                  <div class="row">
+                                      <div class="col-md-8">
+                                          <h3 class="card-title">Tennis de table</h3>
+                                          <p>J'ai pratiqué le tennis de table pendant 2 ans jusqu'à avant le confinement en 2020. Cette expérience m'a apporté non seulement un plaisir sportif, mais aussi des compétences en termes de concentration, de coordination et de fair-play.</p>
+                                      </div>
+                                      <div class="col-md-4">
+                                          <img src="assets/images/table.png" alt="Tennis de table" class="img-fluid rounded">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- CV -->
+          <div class="tab-pane fade" id="resume" role="tabpanel" aria-labelledby="resume-tab">
+              <div class="section-container" data-aos="fade-up">
+                  <h2 class="section-title">CV</h2>
+                  <div class="row justify-content-center">
+                    <div class="col-md-10">
+                      <div class="card mb-4">
+                        <div class="card-body text-center">
+                          <h3 class="mb-4">Mon CV</h3>
+                          <div class="embed-responsive embed-responsive-16by9 mb-4">
+                            <iframe class="embed-responsive-item" src="assets/docs/cv.pdf" style="width: 100%; height: 500px;"></iframe>
+                          </div>
+                          <a href="assets/docs/cv.pdf" download class="btn btn-primary">
+                            <i class="fas fa-download me-2"></i>Téléchargez mon CV ici
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Contact -->
+          <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+              <div class="section-container" data-aos="fade-up">
+                  <h2 class="section-title">Contact</h2>
+                  <div class="row">
+                      <div class="col-md-6">
+                          <form>
+                              <div class="mb-3">
+                                  <label for="name" class="form-label">Nom</label>
+                                  <input type="text" class="form-control" id="name" placeholder="Votre nom">
+                              </div>
+                              <div class="mb-3">
+                                  <label for="email" class="form-label">Email</label>
+                                  <input type="email" class="form-control" id="email" placeholder="Votre email">
+                              </div>
+                              <div class="mb-3">
+                                  <label for="subject" class="form-label">Sujet</label>
+                                  <input type="text" class="form-control" id="subject" placeholder="Sujet de votre message">
+                              </div>
+                              <div class="mb-3">
+                                  <label for="message" class="form-label">Message</label>
+                                  <textarea class="form-control" id="message" rows="5" placeholder="Votre message"></textarea>
+                              </div>
+                              <button type="submit" class="btn btn-primary">
+                                  <i class="fas fa-paper-plane"></i> Envoyer
+                              </button>
+                              (Ce formulaire ne marche actuellement pas)
+                          </form>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="card">
+                              <div class="card-header">
+                                  <i class="fas fa-info-circle"></i> Informations de contact
+                              </div>
+                              <div class="card-body">
+                                  <ul class="list-group list-group-flush">
+                                      <li class="list-group-item">
+                                          <i class="fas fa-envelope"></i> <strong>Email:</strong> quentin.jay2@etu.uca.fr
+                                      </li>
+                                      <li class="list-group-item">
+                                          <i class="fas fa-phone"></i> <strong>Téléphone:</strong> +33 7 71 24 26 84
+                                      </li>
+                                      <li class="list-group-item">
+                                          <i class="fas fa-map-marker-alt"></i> <strong>Localisation:</strong> Clermont-Ferrand, France
+                                      </li>
+                                      <li class="list-group-item">
+                                          <i class="fab fa-linkedin"></i> <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/quentin-jay-3182362a9/" target="_blank">linkedin.com/in/quentin-jay/</a>
+                                      </li>
+                                      <li class="list-group-item">
+                                          <i class="fab fa-github"></i> <strong>GitHub:</strong> <a href="https://github.com/quent1no" target="_blank">github.com/quent1no</a>
+                                      </li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="mt-5">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-12 text-center">
+                  <p>&copy; 2025 Quentin JAY - Portfolio</p>
+                  <div class="social-icons">
+                      <a href="https://linkedin.com/in/quentin-jay-3182362a9/" class="me-3"><i class="fab fa-linkedin fa-2x"></i></a>
+                      <a href="https://github.com/quent1no" class="me-3"><i class="fab fa-github fa-2x"></i></a>
+                      <a href="#"><i class="fas fa-envelope fa-2x"></i></a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- AOS Animation Library -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  
+  <!-- Custom JS -->
+  <script src="assets/js/main.js"></script>
+  
+  <!-- Mode sombre/clair toggle -->
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1000;">
+      <button class="btn btn-dark rounded-circle p-2" onclick="toggleDarkMode()">
+          <i id="darkModeIcon" class="fas fa-moon"></i>
+      </button>
+  </div>
+  
+  <style>
+      /* Styles pour le mode sombre */
+      .dark-mode {
+          background-color: #121212 !important;
+          color: #e0e0e0 !important;
+      }
+      
+      .dark-mode .section-container {
+          background-color: #1e1e1e !important;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3) !important;
+      }
+      
+      .dark-mode .card {
+          background-color: #2d2d2d !important;
+          color: #e0e0e0 !important;
+      }
+      
+      .dark-mode .list-group-item {
+          background-color: #2d2d2d !important;
+          color: #e0e0e0 !important;
+      }
+      
+      .dark-mode .nav-tabs .nav-link {
+          color: #e0e0e0 !important;
+      }
+      
+      .dark-mode .nav-tabs .nav-link.active {
+          background-color: #3498db !important;
+          color: white !important;
+      }
+      
+      .dark-mode .form-control {
+          background-color: #333 !important;
+          color: #e0e0e0 !important;
+          border-color: #444 !important;
+      }
+      
+      .dark-mode .section-title {
+          color: #3498db !important;
+      }
+  </style>
+</body>
+</html>
