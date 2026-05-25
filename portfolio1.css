@@ -1,0 +1,261 @@
+/* Styles généraux pour le corps de la page */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.7;
+    background-color: #f4f4f4;
+    font-size: 1.5vw;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Styles de l'en-tête */
+header {
+    background-color: #333;
+    text-indent: 10%;
+    color: #fff;
+    padding: 0.1em;
+    font-size: 1.2vw;
+}
+
+/* Styles pour les images dans l'en-tête */
+#pp {
+    float: left;
+    height: 8%;
+    width: 12%;
+    border-radius: 45%;
+    margin-left: 20px;
+}
+
+#ehpad {
+    float: right;
+    height: 15vw;
+    width: 21vw;
+    border-radius: 5%;
+
+}
+
+#hopital {
+    float: right;
+    height: 15vw;
+    width: 21vw;
+    border-radius: 5%;
+
+}
+
+#port{
+    float: right;
+    height: 15vw;
+    width: 30vw;
+    border-radius: 5%;
+
+}
+
+#sae15{
+    float: right;
+    height: 12vw;
+    width: 23vw;
+    border-radius: 5%;
+
+}
+
+#cisco{
+    float: right;
+    height: 15vw;
+    width: 28vw;
+    border-radius: 5%;
+
+}
+
+#page{
+    float: right;
+    height: 20vw;
+    width: 28vw;
+    border-radius: 1%;
+
+}
+
+#téléph{
+    float: right;
+    height: 18vw;
+    width: 26vw;
+    border-radius: 1%;
+
+}
+
+#sae22{
+    float: right;
+    height: 15vw;
+    width: 25vw;
+    border-radius: 5%;
+
+}
+
+#Matlab1{
+    float: right;
+    height: 12vw;
+    width: 24w;
+    border-radius: 5%;
+
+}
+
+#Matlab2{
+    float: right;
+    height: 10vw;
+    width: 20vw;
+    border-radius: 5%;
+
+}
+
+#Matlab3{
+    float: right;
+    height: 10vw;
+    width: 21vw;
+    border-radius: 5%;
+
+}
+
+#Matlab4{
+    float: right;
+    height: 10vw;
+    width: 22w;
+    border-radius: 5%;
+
+}
+
+#table{
+    float: right;
+    height: 9vw;
+    width: 20w;
+    border-radius: 5%;
+
+}
+
+#velo{
+    float: right;
+    height: 9vw;
+    width: 20w;
+    border-radius: 5%;
+
+}
+
+#lafa{
+    float: right;
+    height: 12vw;
+    width: 24w;
+    border-radius: 5%;
+
+}
+
+#emploi{
+    float: right;
+    height: 9vw;
+    width: 20w;
+    border-radius: 5%;
+
+}
+
+#menu{
+    float: right;
+    height: 9vw;
+    width: 20w;
+    border-radius: 5%;
+}
+
+#iut{
+    float: right;
+    height: 12vw;
+    width: 25w;
+    border-radius: 5%;
+
+}
+
+#fin{
+    float: right;
+    height: 12vw;
+    width: 35vw;
+    border-radius: 5%;
+
+}
+
+/* Styles pour le titre principal */
+h1 {
+    text-indent: 10%;
+}
+
+/* Styles pour la navigation */
+nav {
+    position: sticky;
+    top: 0;
+    background-color: #333;
+    padding: 1% 0;
+    text-indent: 20%;
+    font-size: 1.2vw;
+    z-index: 1;
+}
+
+nav a {
+    white-space: nowrap;
+    color: #fff;
+    text-decoration: bold;
+    padding: 10px 15px;
+    
+}
+
+nav a:hover {
+    background-color: #0056b3;
+    border-radius: 10%;
+    transform: scale(1.1);
+}
+
+/* Styles pour les sections de contenu */
+section {
+    margin-right: 50px;
+    margin-left: 50px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    
+}
+
+
+/* Styles pour les éléments de liste */
+li {
+    margin-bottom: 10px;
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Styles pour les liens */
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none; 
+}
+
+/* Styles pour les titres de section */
+.titre {
+    margin-left: 50px;
+    scroll-margin-top: 100px;
+}
+
+/* Styles pour la barre de progression */
+.progress-bar {
+    overflow: hidden;
+    height: 2vw;
+    max-width: 25vw; 
+    border-radius: 20px;
+    margin-top: 10px;
+    background-color: #ddd; 
+} 
+
+.progress {
+    background-color: #007BFF; 
+    height: 2vw;
+}
+

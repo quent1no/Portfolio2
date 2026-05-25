@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quentin JAY - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">JAY Quentin</a>
+            <div class="nav-links">
+                <a href="index.html">Accueil</a>
+                <a href="parcours.html">Parcours</a>
+                <a href="portfolio.html" class="active">Portfolio & Projets</a>
+                <a href="contact.html">CV & Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h1 class="page-title">Compétences Techniques</h1>
+        
+        <div class="card">
+            <div class="skill-block">
+                <h3>Téléphonie : Configuration d'un Call Server</h3>
+                <p>Maîtrise de la configuration pas-à-pas des serveurs d'appels et téléphones IP (Note de **19,5/20** à l'évaluation).</p>
+                <div class="progress-bar"><div class="progress" style="width: 90%;">90%</div></div>
+                <img src="téléph.png" alt="Configuration Téléphonie" class="img-large">
+            </div>
+
+            <div class="skill-block">
+                <h3>Réseaux : Plan d'adressage IP & Serveur DHCP</h3>
+                <p>Conception d'architectures de communication et routage de machines sur Cisco Packet Tracer. Gestion de l'attribution automatique des configurations IP via DHCP.</p>
+                <div class="progress-bar"><div class="progress" style="width: 85%;">85%</div></div>
+                <img src="cisco.png" alt="Cisco Packet Tracer Architecture" class="img-large">
+            </div>
+
+            <div class="skill-block">
+                <h3>Programmation Web : HTML / CSS</h3>
+                <p>Création complète de pages web statiques structurées et stylisées pour des projets ou des portfolios.</p>
+                <div class="progress-bar"><div class="progress" style="width: 75%;">75%</div></div>
+                <img src="page.png" alt="Développement Web" class="img-large">
+            </div>
+
+            <div class="skill-block">
+                <h3>Télécommunication : Mesures physiques</h3>
+                <p>Mesure de la vitesse de la lumière au sein d'un câble coaxial en comparant les décalages temporels de signaux (1m vs 100m) à l'aide d'un oscilloscope et d'un générateur basse fréquence.</p>
+                <div class="progress-bar"><div class="progress" style="width: 70%;">70%</div></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Qualités professionnelles (Soft Skills)</h3>
+            <ul>
+                <li><strong>Persévérance :</strong> Capable de rester concentré des séances entières pour résoudre des bugs de code complexes (Ex: Erreurs d'authentification en SAE23).</li>
+                <li><strong>Autonomie :</strong> Efficace seul face à un cahier des charges technique complexe (Ex: Réalisation en solo de TP de télécommunication de 3h).</li>
+                <li><strong>Travail d'équipe :</strong> Capacité à segmenter les tâches intelligemment lors de surcharges de travail pour maximiser la productivité du groupe.</li>
+            </ul>
+            <br>
+            <h3>Compétences Linguistiques</h3>
+            <p><strong>Anglais :</strong> Niveau B2</p>
+        </div>
+
+        <h1 class="page-title" style="margin-top: 50px;">Projets Universitaires (SAE)</h1>
+
+        <div class="card">
+            <h3>SAE15 - Extraction et Automatisation de Données (Note : 20/20)</h3>
+            <p><strong>Description :</strong> Extraction d'informations d'un calendrier de rentrée universitaire pour formater automatiquement les données utiles aux étudiants.</p>
+            <ul>
+                <li>Importation et tri sélectif automatisé sous Excel (suppression des métadonnées inutiles comme les salles ou dates de modification).</li>
+                <li>Conversion automatique des fuseaux horaires natifs (GMT +0) vers le format horaire français.</li>
+                <li>Développement d'un script d'exploitation affichant précisément les dates de reprises par groupe de TD/TP.</li>
+            </ul>
+            <div class="img-grid">
+                <img src="emploi.png" alt="Aperçu Emploi du temps">
+                <img src="sae15.png" alt="Script Excel">
+                <img src="menu.png" alt="Interface">
+                <img src="fin.png" alt="Résultat d'exécution">
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>SAE22 - Traitement du Signal avec Matlab</h3>
+            <p><strong>Description :</strong> Développement d'outils de manipulation et d'analyse de signaux physiques temporels.</p>
+            <ul>
+                <li>Génération, affichage graphique et modification de signaux sinusoïdaux complexes.</li>
+                <li>Calculs d'intégrales numériques via 3 méthodologies : rectangles, trapèzes et méthode de Simpson.</li>
+                <li>Analyse mathématique directe de signaux réels exportés depuis un oscilloscope de laboratoire.</li>
+            </ul>
+            <div class="img-grid">
+                <img src="Matlab1.png" alt="Matlab Code">
+                <img src="Matlab2.png" alt="Signaux">
+                <img src="Matlab3.png" alt="Calcul d'intégrale">
+                <img src="Matlab4.png" alt="Analyse Temporelle">
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>SAE14 - Conception de Portfolio & CV</h3>
+            <p>Création d'une charte graphique professionnelle sur Canva et écriture complète de ce site web multipage adaptatif en HTML/CSS pur.</p>
+            <img src="port.png" alt="Maquette CV Portfolio" class="img-large">
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Quentin JAY </p>
+    </footer>
+
+</body>
+</html>
