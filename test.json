@@ -1,0 +1,242 @@
+/// <reference path="../goja_onlinestream_test/onlinestream-provider.d.ts" />
+/// <reference path="../goja_plugin_types/core.d.ts" />
+
+// --- DTO Types ---
+type SearchResult = { title: string; id: string; url: string; subOrDub?: string };
+type EpisodeDetails = { id: string; number: number; title: string; url: string };
+type EpisodeServer = { server: string; headers: Record<string, string>; videoSources: any[] };
+type ServerResponseDto = { result: { url: string } };
+type SourceResponseDto = { sources: any; tracks?: { file: string; kind: string; label: string }[] };
+type ResultResponse = { result: string };
+
+// --- VRF Crypto Logic (Translated from AniWaveUtils.kt) ---
+const EXCHANGE_KEY_1 = ["AP6GeR8H0lwUz1", "UAz8Gwl10P6ReH"];
+const KEY_1 = "ItFKjuWokn4ZpB";
+const KEY_2 = "fOyt97QWFB3";
+const EXCHANGE_KEY_2 = ["1majSlPQd2M5", "da1l2jSmP5QM"];
+const EXCHANGE_KEY_3 = ["CPYvHj09Au3", "0jHA9CPYu3v"];
+const KEY_3 = "736y1uTJpBLUX";
+
+function exchange(input: string, keys: string[]): string {
+    const key1 = keys[0];
+    const key2 = keys[1];
+    let result = "";
+    for (let i = 0; i < input.length; i++) {
+        const index = key1.indexOf(input[i]);
+        if (index !== -1) {
+            result += key2[index];
+        } else {
+            result += input[i];
+        }
+    }
+    return result;
+}
+
+// RC4 implementation for JS
+function rc4Encrypt(key: string, str: string): string {
+    let s = [], j = 0, x, res = '';
+    for (let i = 0; i < 256; i++) { s[i] = i; }
+    for (let i = 0; i < 256; i++) {
+        j = (j + s[i] + key.charCodeAt(i % key.length)) % 256;
+        x = s[i]; s[i] = s[j]; s[j] = x;
+    }
+    let i = 0; j = 0;
+    let bytes = [];
+    for (let y = 0; y < str.length; y++) {
+        i = (i + 1) % 256;
+        j = (j + s[i]) % 256;
+        x = s[i]; s[i] = s[j]; s[j] = x;
+        bytes.push(String.fromCharCode(str.charCodeAt(y) ^ s[(s[i] + s[j]) % 256]));
+    }
+    return btoa(bytes.join('')).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+}
+
+function vrfEncrypt(input: string): string {
+    let vrf = input;
+    vrf = exchange(vrf, EXCHANGE_KEY_1);
+    vrf = rc4Encrypt(KEY_1, vrf);
+    vrf = rc4Encrypt(KEY_2, vrf);
+    vrf = exchange(vrf, EXCHANGE_KEY_2);
+    vrf = exchange(vrf, EXCHANGE_KEY_3);
+    vrf = vrf.split('').reverse().join('');
+    vrf = rc4Encrypt(KEY_3, vrf);
+    vrf = btoa(vrf).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+    return encodeURIComponent(vrf);
+}
+
+
+class Provider {
+
+    api = "https://aniwave.to" 
+    headers = { 
+        Referer: `${this.api}/`,
+        // Spoofing UA to match the mobile CF bypass logic
+        "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Mobile Safari/537.36"
+    }
+
+    getSettings(): Settings {
+        return {
+            episodeServers: [
+                "Vidstream", "MegaPlay", "VidCloud", "Kiwi-Stream"
+            ],
+            supportsDub: true,
+        }
+    }
+
+    async search(opts: SearchOptions): Promise<SearchResult[]> {
+        const vrf = vrfEncrypt(opts.query);
+        const req = await fetch(`${this.api}/filter?keyword=${encodeURIComponent(opts.query)}&page=1&vrf=${vrf}`, {
+            headers: this.headers,
+        })
+
+        if (!req.ok) return []
+
+        const html = await req.text()
+        const $ = LoadDoc(html)
+        const results: SearchResult[] = []
+
+        $("div.ani.items > div.item").each((_, el) => {
+            const a = $(el).find("a.name")
+            const title = a.text().trim() || a.attr("data-jp") || ""
+            let url = a.attr("href")?.split("?")[0] || ""
+            url = url.replace(/\/ep-\d+$/, "") 
+            
+            if (title && url) {
+                results.push({
+                    subOrDub: "sub", 
+                    id: url,
+                    title: title,
+                    url: url,
+                })
+            }
+        })
+
+        return results
+    }
+
+    async findEpisodes(id: string): Promise<EpisodeDetails[]> {
+        // 1. Fetch the anime page to get the internal data-id
+        const pageReq = await fetch(`${this.api}${id}`, { headers: this.headers })
+        const pageHtml = await pageReq.text()
+        const $page = LoadDoc(pageHtml)
+        
+        let internalId = $page("[data-id]").attr("data-id") || $page("[data-tip]").attr("data-tip");
+        if (!internalId) throw new Error("Anime internal ID not found")
+
+        // 2. Fetch the episode list JSON
+        const vrf = vrfEncrypt(internalId);
+        const epReq = await fetch(`${this.api}/ajax/episode/list/${internalId}?vrf=${vrf}`, {
+            headers: {
+                ...this.headers,
+                "Accept": "application/json, text/javascript, */*; q=0.01",
+                "X-Requested-With": "XMLHttpRequest"
+            }
+        })
+
+        const epData = (await epReq.json()) as ResultResponse;
+        const $ = LoadDoc(epData.result);
+        const episodes: EpisodeDetails[] = [];
+
+        $("div.episodes ul > li > a").each((_, el) => {
+            const epNum = $(el).attr("data-num") || "0";
+            const ids = $(el).attr("data-ids") || "";
+            const titleSpan = $(el).parent().find("span.d-title").text();
+            
+            episodes.push({
+                id: ids, 
+                number: parseFloat(epNum),
+                title: titleSpan ? `Episode ${epNum}: ${titleSpan}` : `Episode ${epNum}`,
+                url: `${id}/ep-${epNum}`
+            })
+        })
+
+        return episodes;
+    }
+
+    async findEpisodeServer(episode: EpisodeDetails, serverName: string): Promise<EpisodeServer> {
+        // 1. Get the servers for this episode
+        const listReq = await fetch(`${this.api}/ajax/server/list?servers=${episode.id}`, {
+            headers: {
+                ...this.headers,
+                "Accept": "application/json, text/javascript, */*; q=0.01",
+                "X-Requested-With": "XMLHttpRequest",
+                "Referer": `${this.api}${episode.url}`
+            }
+        })
+        
+        const listData = (await listReq.json()) as ResultResponse;
+        const $ = LoadDoc(listData.result);
+        let targetServerId = "";
+        
+        // Find the matching server ID based on user selection
+        $("div.servers > div.type li").each((_, el) => {
+            const sName = $(el).text().trim().toLowerCase();
+            if (sName.includes(serverName.toLowerCase())) {
+                 targetServerId = $(el).attr("data-link-id") || "";
+            }
+        })
+
+        if (!targetServerId) throw new Error(`Server ${serverName} not found for this episode.`);
+
+        // 2. Get the Embed Link
+        const embedReq = await fetch(`${this.api}/ajax/server?get=${targetServerId}`, {
+             headers: {
+                ...this.headers,
+                "Accept": "application/json, text/javascript, */*; q=0.01",
+                "X-Requested-With": "XMLHttpRequest",
+            }
+        });
+        const embedData = (await embedReq.json()) as ServerResponseDto;
+        let embedUrl = embedData.result.url;
+
+        // 3. Extraction (Assuming VidStream/MyCloud logic here as they are standard)
+        // KiwiStream uses Kwik extraction which requires complex DOM bypassing. 
+        // This is a simplified extraction for the standard VidStream/MyCloud servers.
+        
+        try {
+            const host = new URL(embedUrl).host;
+            const pageReq = await fetch(embedUrl, { headers: { Referer: `${this.api}/` } });
+            const pageHtml = await pageReq.text();
+            
+            const dataIdMatch = pageHtml.match(/data-id="([^"]+)"/);
+            if (!dataIdMatch) throw new Error("Could not find data-id on player page");
+            const dataId = dataIdMatch[1];
+
+            const sourcesReq = await fetch(`https://${host}/stream/getSources?id=${dataId}`, {
+                headers: {
+                    "Accept": "*/*",
+                    "X-Requested-With": "XMLHttpRequest",
+                    "Referer": embedUrl,
+                    "Origin": `https://${host}`
+                }
+            });
+
+            const sourceData = (await sourcesReq.json()) as SourceResponseDto;
+            
+            // Extract the actual m3u8 file
+            let m3u8Url = "";
+            if (Array.isArray(sourceData.sources)) {
+                 m3u8Url = sourceData.sources[0]?.file || "";
+            } else if (sourceData.sources && sourceData.sources.file) {
+                 m3u8Url = sourceData.sources.file;
+            }
+
+            if (!m3u8Url) throw new Error("No valid M3U8 found");
+
+            return {
+                server: serverName,
+                headers: { Referer: `https://${host}/` },
+                videoSources: [{
+                    url: m3u8Url,
+                    type: "m3u8",
+                    quality: "auto",
+                    subtitles: [], 
+                    headers: { Referer: `https://${host}/` }
+                }]
+            }
+
+        } catch (e) {
+            throw new Error(`Failed to extract video: ${e.message}`);
+        }
+    }
+}
